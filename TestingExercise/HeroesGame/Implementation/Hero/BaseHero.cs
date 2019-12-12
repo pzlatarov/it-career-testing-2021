@@ -1,16 +1,16 @@
 ﻿using HeroesGame.Constant;
+using HeroesGame.Contract;
 using HeroesGame.Implementation.Monster;
-using HeroesGame.Implementation.Weapon;
 
 namespace HeroesGame.Implementation.Hero
 {
-    public abstract class BaseHero
+    public abstract class BaseHero : IHero
     {
         /// <summary>
         /// On level up the armor and max health are increased correspondently. Hero's weapon level ups as he level ups.
         /// </summary>
         protected abstract void LevelUp();
-        protected BaseHero(BaseWeapon weapon)
+        protected BaseHero(IWeapon weapon)
         {
             this.Level = HeroConstants.InitialLevel;
             this.Experience = HeroConstants.InitialExperience;
@@ -20,7 +20,7 @@ namespace HeroesGame.Implementation.Hero
             this.Weapon = weapon;
         }
 
-        public BaseWeapon Weapon { get; }
+        public IWeapon Weapon { get; }
 
         public int Level { get; protected set; }
 
@@ -50,7 +50,7 @@ namespace HeroesGame.Implementation.Hero
         /// </summary>
         /// <param name="monster">The monster taking the hit.</param>
         /// <returns>The amount of damage done to the monster.</returns>
-        public double Hit(BaseMonster monster)
+        public double Hit(IMonster monster)
         {
             return monster.TakeHit(this.Weapon);
         }

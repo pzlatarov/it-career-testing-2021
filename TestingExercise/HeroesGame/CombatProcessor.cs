@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using HeroesGame.Contract;
 using HeroesGame.Implementation.Hero;
 using HeroesGame.Implementation.Monster;
 
 namespace HeroesGame
 {
-    public class CombatProcessor
+    public class CombatProcessor : ICombatProcessor
     {
         private int Fights { get; set; }
         private int HealsUsed { get; set; }

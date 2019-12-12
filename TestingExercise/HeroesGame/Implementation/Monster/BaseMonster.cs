@@ -1,10 +1,9 @@
 ﻿using HeroesGame.Constant;
-using HeroesGame.Implementation.Hero;
-using HeroesGame.Implementation.Weapon;
+using HeroesGame.Contract;
 
 namespace HeroesGame.Implementation.Monster
 {
-    public abstract class BaseMonster
+    public abstract class BaseMonster : IMonster
     {
         protected BaseMonster(int level)
         {
@@ -28,7 +27,7 @@ namespace HeroesGame.Implementation.Monster
         /// </summary>
         /// <param name="hero">The hero that takes the hit.</param>
         /// <returns>The amount of damage done to the hero.</returns>
-        public double Hit(BaseHero hero)
+        public double Hit(IHero hero)
         {
             return hero.TakeHit(this.Damage());
         }
@@ -38,7 +37,7 @@ namespace HeroesGame.Implementation.Monster
         /// </summary>
         /// <param name="weapon">The weapon hitting the monster.</param>
         /// <returns>The amount of damage taken.</returns>
-        public double TakeHit(BaseWeapon weapon)
+        public double TakeHit(IWeapon weapon)
         {
             int finalDamage = weapon.Damage + weapon.ArmorPenetration() - this.Armor();
             this.Health -= finalDamage;

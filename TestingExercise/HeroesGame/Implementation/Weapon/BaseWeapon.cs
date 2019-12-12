@@ -1,8 +1,9 @@
 ﻿using HeroesGame.Constant;
+using HeroesGame.Contract;
 
 namespace HeroesGame.Implementation.Weapon
 {
-    public abstract class BaseWeapon
+    public abstract class BaseWeapon : IWeapon
     {
         protected BaseWeapon()
         {
