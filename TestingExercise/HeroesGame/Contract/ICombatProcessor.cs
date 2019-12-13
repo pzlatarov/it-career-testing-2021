@@ -10,6 +10,6 @@ namespace HeroesGame.Contract
 
         List<string> Logger { get; set; }
 
-        void Fight(BaseMonster monster);
+        void Fight(IMonster monster);
     }
 }
