@@ -25,7 +25,7 @@ namespace HeroesGame
         /// The fighting process itself. Starts with the hero taking the first hit.
         /// </summary>
         /// <param name="monster">The monster that our player fights against.</param>
-        public void Fight(BaseMonster monster)
+        public void Fight(IMonster monster)
         {
             this.Fights++;
 
@@ -35,7 +35,7 @@ namespace HeroesGame
             if (monster.IsDead())
             {
                 this.Hero.GainExperience(monster.Experience());
-                this.Logger.Add($"The monster dies. (${monster.Experience()} XP gained.)");
+                this.Logger.Add($"The monster dies. ({monster.Experience()} XP gained.)");
                 return;
             }
 
