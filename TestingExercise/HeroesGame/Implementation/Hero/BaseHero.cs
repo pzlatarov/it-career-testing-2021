@@ -63,9 +63,9 @@ namespace HeroesGame.Implementation.Hero
         {
             this.Experience += xp;
 
-            if (this.Experience >= HeroConstants.MaximumExperience * this.Level)
+            if (this.Experience >= HeroConstants.MaximumExperience)
             {
-                this.Experience = this.Experience % 100;
+                this.Experience = this.Experience % HeroConstants.MaximumExperience;
                 this.LevelUp();
             }
         }
