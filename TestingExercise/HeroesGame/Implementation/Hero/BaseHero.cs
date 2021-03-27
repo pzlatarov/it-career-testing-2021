@@ -1,4 +1,5 @@
-﻿using HeroesGame.Constant;
+﻿using System;
+using HeroesGame.Constant;
 using HeroesGame.Contract;
 using HeroesGame.Implementation.Monster;
 
@@ -39,6 +40,11 @@ namespace HeroesGame.Implementation.Hero
         /// <returns>The damage taken after armor is taken into consideration.</returns>
         public double TakeHit(double damage)
         {
+            if (damage < 0)
+            {
+                throw new ArgumentException("Damage value cannot be negative");
+            }
+
             double finalDamage = damage - this.Armor;
             this.Health = this.Health - finalDamage;
 
