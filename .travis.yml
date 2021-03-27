@@ -10,4 +10,4 @@ script:
   - cd ./TestingExercise
   - dotnet restore
   - dotnet build
-  - dotnet test ./HeroesGame.Tests/HeroesGame.Tests.csproj
+  - dotnet test ./HeroesGame.Tests/HeroesGame.Tests/HeroesGame.Tests.csproj
